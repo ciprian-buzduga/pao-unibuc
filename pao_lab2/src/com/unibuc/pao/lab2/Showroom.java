@@ -1,11 +1,13 @@
 package com.unibuc.pao.lab2;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class Showroom {
+public class Showroom extends AbstractShowroom {
 
-    public List<Car> cars = new ArrayList<>();
+    private Map<String, List<Car>> agentPortfolio = new HashMap<>();
 
     public Showroom() {
         Car car = new BMW();
@@ -13,11 +15,23 @@ public class Showroom {
         //cars.add(new BMW());
     }
 
+    @Override
     public void addCar(Car car) {
-        cars.add(car);
+        super.addCar(car);
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public void addCar(String agentName, Car car) {
+        List<Car> agentCars = agentPortfolio.get(agentName);
+        if(agentCars != null && !agentCars.isEmpty()) {
+            if(!agentCars.contains(car)) {
+                agentCars.add(car);
+            } else {
+                System.out.println("Agent " + agentName + " has already the car " + car);
+            }
+        } else {
+            agentCars = new ArrayList<>();
+            agentCars.add(car);
+            agentPortfolio.put(agentName, agentCars);
+        }
     }
 }
