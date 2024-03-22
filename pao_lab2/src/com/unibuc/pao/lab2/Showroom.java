@@ -21,6 +21,7 @@ public class Showroom extends AbstractShowroom {
     }
 
     public void addCar(String agentName, Car car) {
+        //Map<String, List<Car>> agentPortfolio = new HashMap<>();
         List<Car> agentCars = agentPortfolio.get(agentName);
         if(agentCars != null && !agentCars.isEmpty()) {
             if(!agentCars.contains(car)) {
@@ -33,5 +34,9 @@ public class Showroom extends AbstractShowroom {
             agentCars.add(car);
             agentPortfolio.put(agentName, agentCars);
         }
+    }
+
+    public List<Car> getCars(String agentName) {
+        return agentPortfolio.get(agentName);
     }
 }

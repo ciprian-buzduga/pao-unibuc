@@ -16,4 +16,8 @@ public interface Car {
         return 10000F;
     }
 
+    void setSerialNumber(String number);
+
+    String getSerialNumber();
+
 }
