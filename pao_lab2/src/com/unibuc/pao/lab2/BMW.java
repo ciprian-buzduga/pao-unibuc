@@ -2,6 +2,8 @@ package com.unibuc.pao.lab2;
 
 public class BMW implements Car {
 
+    private String mark = "BMW";
+
     private String serialNumber;
 
     @Override

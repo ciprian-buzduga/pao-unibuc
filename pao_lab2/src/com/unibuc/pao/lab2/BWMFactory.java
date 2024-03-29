@@ -10,7 +10,7 @@ public class BWMFactory implements CarFactory {
         System.out.println("Initializing BWMFactory...");
     }
 
-    public static BWMFactory getInstance() {
+    public synchronized static BWMFactory getInstance() {
         if(instance == null) {
             instance = new BWMFactory();
         }
