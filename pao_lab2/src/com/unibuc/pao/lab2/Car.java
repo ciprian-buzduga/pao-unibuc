@@ -5,7 +5,9 @@ public interface Car {
     /**
      * @return Car mark. Eg: BMW, Mercedes
      */
-    String getMark();
+    CarMark getMark();
+
+    void setMark(CarMark mark);
 
     /**
      * @return The running kilometers

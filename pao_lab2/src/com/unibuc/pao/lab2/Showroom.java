@@ -1,11 +1,10 @@
 package com.unibuc.pao.lab2;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Showroom extends AbstractShowroom {
+
+    private List<ShowroomListener> listeners = new ArrayList<>();
 
     private Map<String, List<Car>> agentPortfolio = new HashMap<>();
 
@@ -18,6 +17,15 @@ public class Showroom extends AbstractShowroom {
     @Override
     public void addCar(Car car) {
         super.addCar(car);
+        listeners.forEach(l -> l.onCarsListener(Arrays.asList(car)));
+    }
+
+    public void addClient(Client client) {
+        listeners.add(client);
+    }
+
+    public void addAgent(Agent agent) {
+        listeners.add(agent);
     }
 
     public void addCar(String agentName, Car car) {

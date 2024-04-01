@@ -2,13 +2,18 @@ package com.unibuc.pao.lab2;
 
 public class BMW implements Car {
 
-    private String mark = "BMW";
+    private CarMark mark;
 
     private String serialNumber;
 
     @Override
-    public String getMark() {
-        return "BMW";
+    public void setMark(CarMark mark) {
+        this.mark = mark;
+    }
+
+    @Override
+    public CarMark getMark() {
+        return mark;
     }
 
     @Override

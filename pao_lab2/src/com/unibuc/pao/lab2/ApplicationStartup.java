@@ -5,10 +5,19 @@ import java.util.List;
 public class ApplicationStartup {
 
     public static void main(String[] args) {
-        BWMFactory factory = BWMFactory.getInstance();
+       Showroom showroom = new Showroom();
 
-        BWMFactory factory1 = BWMFactory.getInstance();
+       Client client = new Client();
+       client.setName("Popescu Ion");
 
-        System.out.println("Is singleton? " + (factory == factory1));
+       Agent agent = new Agent();
+       agent.setName("Georgescu Marian");
+
+       showroom.addAgent(agent);
+       showroom.addClient(client);
+
+       Car car = new BMW();
+       car.setMark(CarMark.BMW_X6);
+       showroom.addCar(car);
     }
 }
