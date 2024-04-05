@@ -4,7 +4,7 @@ import com.unibuc.pao.lab2.listener.ShowroomListener;
 
 import java.util.List;
 
-public class Agent extends Person implements ShowroomListener {
+public class Agent extends Person {
 
     @Override
     public void onCarsListener(List<Car> cars) {
