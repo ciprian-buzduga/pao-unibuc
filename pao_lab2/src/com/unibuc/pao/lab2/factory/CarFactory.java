@@ -1,4 +1,9 @@
 package com.unibuc.pao.lab2.factory;
 
-public interface CarFactory {
+import com.unibuc.pao.lab2.model.Car;
+
+public interface CarFactory<T extends Car> {
+
+    T makeCar();
+
 }

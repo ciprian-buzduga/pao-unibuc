@@ -1,23 +1,22 @@
 package com.unibuc.pao.lab2;
 
+import com.unibuc.pao.lab2.factory.BMWFactory;
 import com.unibuc.pao.lab2.model.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ApplicationStartup {
 
     public static void main(String[] args) {
-       Showroom showroom = new Showroom();
+        //ModelCar modelCar = new ModelCar(null, null, null, null, "value", null, null);
 
-       Client client = new Client();
-       client.setName("Popescu Ion");
+        ModelCar car = ModelCar.ModelCarBuilder.getInstance()
+                .setAttribute1("attr1")
+                .setAttribute3("attr3")
+                .build();
 
-       Agent agent = new Agent();
-       agent.setName("Georgescu Marian");
-
-       showroom.addAgent(agent);
-       showroom.addClient(client);
-
-       Car car = new BMW();
-       car.setMark(CarMark.BMW_X6);
-       showroom.addCar(car);
+        ModelCar car2 = new ModelCar();
+        car2.setAttribute2("");
     }
 }
