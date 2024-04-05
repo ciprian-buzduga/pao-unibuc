@@ -1,4 +1,4 @@
-package com.unibuc.pao.lab2;
+package com.unibuc.pao.lab2.model;
 
 public interface Car {
 

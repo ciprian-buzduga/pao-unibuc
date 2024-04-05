@@ -1,17 +1,10 @@
-package com.unibuc.pao.lab2;
+package com.unibuc.pao.lab2.model;
 
-import java.util.List;
-
-public class Agent implements ShowroomListener {
+public abstract class Person {
 
     private String name;
     private String phone;
     private String email;
-
-    @Override
-    public void onCarsListener(List<Car> cars) {
-        System.out.println("Notified agent about cars " + cars);
-    }
 
     public String getName() {
         return name;

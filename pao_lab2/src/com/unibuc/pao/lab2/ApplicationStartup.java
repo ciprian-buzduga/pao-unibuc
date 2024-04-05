@@ -1,6 +1,6 @@
 package com.unibuc.pao.lab2;
 
-import java.util.List;
+import com.unibuc.pao.lab2.model.*;
 
 public class ApplicationStartup {
 

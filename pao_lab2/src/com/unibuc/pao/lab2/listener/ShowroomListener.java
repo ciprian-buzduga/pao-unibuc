@@ -1,4 +1,6 @@
-package com.unibuc.pao.lab2;
+package com.unibuc.pao.lab2.listener;
+
+import com.unibuc.pao.lab2.model.Car;
 
 import java.util.List;
 

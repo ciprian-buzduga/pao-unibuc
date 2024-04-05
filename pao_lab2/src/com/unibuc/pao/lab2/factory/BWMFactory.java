@@ -1,4 +1,4 @@
-package com.unibuc.pao.lab2;
+package com.unibuc.pao.lab2.factory;
 
 public class BWMFactory implements CarFactory {
 
