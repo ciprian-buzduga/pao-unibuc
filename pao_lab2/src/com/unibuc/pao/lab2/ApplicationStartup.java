@@ -3,20 +3,32 @@ package com.unibuc.pao.lab2;
 import com.unibuc.pao.lab2.factory.BMWFactory;
 import com.unibuc.pao.lab2.model.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class ApplicationStartup {
 
-    public static void main(String[] args) {
-        //ModelCar modelCar = new ModelCar(null, null, null, null, "value", null, null);
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newFixedThreadPool(10);
 
-        ModelCar car = ModelCar.ModelCarBuilder.getInstance()
-                .setAttribute1("attr1")
-                .setAttribute3("attr3")
-                .build();
+        BMWFactory bmwFactory = BMWFactory.getInstance();
+        for(int i = 0; i < 100; i++) {
+            executor.submit(() -> {
+                bmwFactory.incrementCars();
+            });
+        }
 
-        ModelCar car2 = new ModelCar();
-        car2.setAttribute2("");
+        executor.shutdown();
+
+        try {
+            System.out.println("awaitTermination.....");
+            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Executor is finished? " + executor.isTerminated() + " " + executor.isShutdown());
+        System.out.println("Number of cars: " + bmwFactory.getNumberOfCars());
     }
 }
