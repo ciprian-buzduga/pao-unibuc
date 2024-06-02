@@ -22,4 +22,9 @@ public class BMW extends AbstractCar {
         }
         return false;
     }
+
+    @Override
+    public int hashCode() {
+        return getSerialNumber().hashCode();
+    }
 }
